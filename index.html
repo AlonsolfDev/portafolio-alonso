@@ -3,10 +3,129 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portafolio Frontend Web</title>
+  <meta name="description" content="Portafolio personal de Alonso, estudiante de Ingeniería Civil Informática.">
+  <title>Alonso | Portafolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+
+  <header>
+    <nav aria-label="Principal">
+      <a class="logo" href="#inicio">Alonso</a>
+      <button id="btn-menu" type="button" aria-expanded="false" aria-controls="nav-menu">Menú</button>
+      <ul id="nav-menu">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <button id="btn-tema" type="button" aria-pressed="false">Modo oscuro</button>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section id="inicio" class="hero">
+      <div>
+        <h1>Construyo software que se puede leer, probar y mantener.</h1>
+        <p>Soy Alonso, estudiante de Ingeniería Civil Informática. Me interesan las APIs, las bases de datos y las interfaces claras.</p>
+        <a class="boton" href="#proyectos">Ver proyectos</a>
+      </div>
+      <img src="img/avatar.svg" alt="Logotipo con la letra A, inicial de Alonso" width="200" height="200">
+    </section>
+
+    <section id="sobre-mi">
+      <h2>Sobre mí</h2>
+      <p class="intro">Aprendo construyendo: cada ramo termina en algo que funciona y que puedo mostrar.</p>
+      <div class="linea-tiempo">
+        <article>
+          <h3>Ingeniería Civil Informática</h3>
+          <p>Carrera en curso. Programación, estructuras de datos y bases de datos.</p>
+        </article>
+        <article>
+          <h3>Desarrollo Backend</h3>
+          <p>APIs REST con FastAPI, estandarización de respuestas y contenerización con Docker.</p>
+        </article>
+        <article>
+          <h3>Desarrollo Frontend</h3>
+          <p>HTML semántico, CSS responsivo y JavaScript. Este portafolio es parte de ese trabajo.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="proyectos">
+      <h2>Proyectos</h2>
+      <div class="filtros" role="group" aria-label="Filtrar proyectos por categoría">
+        <button class="btn-filtro activo" type="button" data-filtro="todos" aria-pressed="true">Todos</button>
+        <button class="btn-filtro" type="button" data-filtro="web" aria-pressed="false">Web</button>
+        <button class="btn-filtro" type="button" data-filtro="backend" aria-pressed="false">Backend</button>
+        <button class="btn-filtro" type="button" data-filtro="datos" aria-pressed="false">Datos</button>
+      </div>
+      <div class="rejilla">
+        <article class="proyecto" data-categoria="web">
+          <h3>Portafolio web</h3>
+          <p>Sitio estático con HTML5, CSS3 y JavaScript, publicado en GitHub Pages.</p>
+          <p class="tec">HTML, CSS, JavaScript</p>
+        </article>
+        <article class="proyecto" data-categoria="backend">
+          <h3>API de reservas</h3>
+          <p>API REST para reservar salas y equipamiento, con usuarios y reservas.</p>
+          <p class="tec">Python, FastAPI</p>
+        </article>
+        <article class="proyecto" data-categoria="backend">
+          <h3>API en contenedores</h3>
+          <p>API REST empaquetada con Docker y Compose para desarrollo y producción.</p>
+          <p class="tec">Docker, Compose, SQLite</p>
+        </article>
+        <article class="proyecto" data-categoria="datos">
+          <h3>Procedimientos almacenados</h3>
+          <p>Lógica de negocio en la base de datos con procedimientos almacenados.</p>
+          <p class="tec">MySQL, SQL</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="habilidades">
+      <h2>Habilidades</h2>
+      <div class="rejilla">
+        <article><h3>Lenguajes</h3><p>Python, JavaScript, SQL, HTML y CSS.</p></article>
+        <article><h3>Bases de datos</h3><p>MySQL, SQLite y procedimientos almacenados.</p></article>
+        <article><h3>Herramientas</h3><p>Git, GitHub, Docker y VS Code.</p></article>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <form id="form-contacto" novalidate>
+        <div class="campo">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" type="text" autocomplete="name" aria-describedby="error-nombre">
+          <span id="error-nombre" class="error" role="alert"></span>
+        </div>
+        <div class="campo">
+          <label for="correo">Correo</label>
+          <input id="correo" name="correo" type="email" autocomplete="email" aria-describedby="error-correo">
+          <span id="error-correo" class="error" role="alert"></span>
+        </div>
+        <div class="campo">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="5" aria-describedby="error-mensaje"></textarea>
+          <span id="error-mensaje" class="error" role="alert"></span>
+        </div>
+        <button class="boton" type="submit">Enviar mensaje</button>
+        <p id="mensaje-exito" role="status" hidden>Mensaje enviado. Gracias por escribir.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Alonso, 2026. Hecho con HTML, CSS y JavaScript.</p>
+  </footer>
+
   <script src="js/main.js"></script>
 </body>
 </html>
